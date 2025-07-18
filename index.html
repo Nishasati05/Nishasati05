@@ -187,7 +187,83 @@
         grid-template-columns: 1fr;
       }
     }
+    .skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.skill-category {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+
+.skill-category h3 {
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #1abc9c;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.skill-item:hover .skill-name {
+  color: #1abc9c;
+  transform: translateX(5px);
+}
+
+.skill-bar {
+  height: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-level {
+  height: 100%;
+  background: #1abc9c;
+  border-radius: 5px;
+  transition: width 1s ease-in-out, background 0.3s;
+}
+
+.skill-item:hover .skill-level {
+  background: #16a085;
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
+  
 </head>
 
 <body>
@@ -266,13 +342,81 @@
     </section>
 
     <section id="skills" class="section">
-      <h2>Skills</h2>
-      <ul>
-        <li>Languages: C++, Python, JavaScript</li>
-        <li>Web: HTML, CSS, React, Node.js</li>
-        <li>Tools: Git, VS Code</li>
-      </ul>
-    </section>
+  <h2>Skills</h2>
+  <div class="skills-container">
+    <div class="skill-category">
+      <h3>Languages</h3>
+      <div class="skills-list">
+        <div class="skill-item">
+          <span class="skill-name">C++</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 50%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 70%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 30%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Web Development</h3>
+      <div class="skills-list">
+        <div class="skill-item">
+          <span class="skill-name">HTML/CSS</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 40%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">React</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 10%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Node.js</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 30%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Tools</h3>
+      <div class="skills-list">
+        <div class="skill-item">
+          <span class="skill-name">Git</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 70%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">VS Code</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Data Analysis</span>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="contact" class="section">
       <h2>Contact</h2>
