@@ -100,13 +100,16 @@
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
       border-top: 4px solid #1abc9c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     .project:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     .project h3 {
@@ -125,6 +128,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-bottom: 1.2rem;
+      justify-content: center;
     }
 
     .tech-tag {
@@ -136,9 +140,22 @@
       font-weight: 500;
     }
 
-    .project-links {
-      display: flex;
-      gap: 1rem;
+    .github-btn {
+      background: #1abc9c;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .github-btn:hover {
+      background: #16a085;
+      transform: scale(1.05);
     }
 
     footer {
@@ -147,33 +164,6 @@
       text-align: center;
       padding: 1.5rem;
       margin-top: 3rem;
-    }
-
-    .btn {
-      background: #1abc9c;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #16a085;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #1abc9c;
-      color: #1abc9c;
-    }
-
-    .btn-outline:hover {
-      background: #1abc9c;
-      color: white;
     }
 
     @media (max-width: 768px) {
@@ -208,7 +198,7 @@
         <h1>Nisha Sati</h1>
         <p>Data Analytics | C++ Programmer | Python Programmer | Tech Enthusiast</p>
       </div>
-      <img src="pfp.jpg" alt="Nisha Sati Profile Picture" class="profile-pic">
+      <img src="https://via.placeholder.com/150" alt="Nisha Sati Profile Picture" class="profile-pic">
       <!-- Replace the placeholder with your actual image URL -->
     </div>
   </header>
@@ -241,12 +231,10 @@
             <span class="tech-tag">Node.js</span>
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">Express</span>
-            <span class="tech-tag">JWT</span>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/yourgithub/url-shortener" target="_blank" class="btn">View Code</a>
-            <a href="#" class="btn btn-outline">Live Demo</a>
-          </div>
+          <a href="https://github.com/yourgithub/url-shortener" target="_blank" class="github-btn">
+            <span>💻</span> View Code
+          </a>
         </div>
 
         <div class="project">
@@ -257,10 +245,9 @@
             <span class="tech-tag">TensorFlow</span>
             <span class="tech-tag">Numerical Methods</span>
           </div>
-          <div class="project-links">
-            <a href="#" class="btn">View Code</a>
-            <a href="#" class="btn btn-outline">Case Study</a>
-          </div>
+          <a href="#" class="github-btn">
+            <span>💻</span> View Code
+          </a>
         </div>
 
         <div class="project">
@@ -270,12 +257,10 @@
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Plotly</span>
             <span class="tech-tag">Pandas</span>
-            <span class="tech-tag">Dash</span>
           </div>
-          <div class="project-links">
-            <a href="#" class="btn">View Code</a>
-            <a href="#" class="btn btn-outline">See Demo</a>
-          </div>
+          <a href="#" class="github-btn">
+            <span>💻</span> View Code
+          </a>
         </div>
       </div>
     </section>
