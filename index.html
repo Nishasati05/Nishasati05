@@ -2,468 +2,718 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nisha Sati | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nisha Sati</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
-    body {
-      background-color: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
     }
 
-    header {
-      background-color: #2c3e50;
-      color: #fff;
-      padding: 2rem 1rem;
-      position: relative;
-      text-align: center;
-    }
-
-    .header-wrapper {
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #1abc9c;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    nav {
-      background: #34495e;
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #1abc9c;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    .section h2 {
-      margin-bottom: 1.5rem;
-      color: #2c3e50;
-      border-bottom: 2px solid #1abc9c;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .project {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      border-top: 4px solid #1abc9c;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-    }
-
-    .project h3 {
-      color: #2c3e50;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    .project p {
-      color: #555;
-      margin-bottom: 1.2rem;
-    }
-
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.2rem;
-      justify-content: center;
-    }
-
-    .tech-tag {
-      background: #e0f2f1;
-      color: #00796b;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    .github-btn {
-      background: #1abc9c;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .github-btn:hover {
-      background: #16a085;
-      transform: scale(1.05);
-    }
-
-    footer {
-      background-color: #2c3e50;
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      .profile-pic {
-        position: static;
-        transform: none;
-        display: block;
-        margin: 1.5rem auto 0;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav a {
-        margin: 0.5rem 0;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-
-    .skill-category {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .skill-category:hover {
-      transform: translateY(-5px);
-    }
-
-    .skill-category h3 {
-      color: #2c3e50;
-      margin-bottom: 1.2rem;
-      font-size: 1.2rem;
-      border-bottom: 2px solid #1abc9c;
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .skill-name {
-      font-weight: 500;
-      color: #333;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .skill-item:hover .skill-name {
-      color: #1abc9c;
-      transform: translateX(5px);
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .skill-bar {
-      height: 10px;
-      background: #ecf0f1;
-      border-radius: 5px;
-      overflow: hidden;
+      width: 0%;
+      transition: width 1.5s ease-out;
+    }
+
+    .skill-bar.animate {
+      width: var(--skill-width);
+    }
+
+    .project-card {
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
       position: relative;
+      transition: color 0.3s ease;
     }
 
-    .skill-level {
-      height: 100%;
-      background: #1abc9c;
-      border-radius: 5px;
-      transition: width 1s ease-in-out, background 0.3s;
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      transition: width 0.3s ease;
     }
 
-    .skill-item:hover .skill-level {
-      background: #16a085;
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
     }
 
-    @media (max-width: 768px) {
-      .skills-container {
-        grid-template-columns: 1fr;
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .typing {
+      border-right: 2px solid #3b82f6;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      50% {
+        border-color: transparent;
+      }
+
+      51%,
+      100% {
+        border-color: #3b82f6;
       }
     }
   </style>
-
 </head>
 
-<body>
-
-  <header>
-    <div class="header-wrapper">
-      <div>
-        <h1>Nisha Sati</h1>
-        <p>Data Analytics | C++ Programmer | Python Programmer | Tech Enthusiast</p>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="text-2xl font-bold gradient-text">Portfolio</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link active text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">About</a>
+          <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Skills</a>
+          <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Projects</a>
+          <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+        <button id="mobile-menu" class="md:hidden p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
-      <img src="pfpp.jpg" alt="Nisha Sati Profile Picture" class="profile-pic">
-      <!-- Replace the placeholder with your actual image URL -->
     </div>
-  </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
   </nav>
 
-  <div class="container">
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>
-        I'm a final-year BCA student with a passion for C++ programming and data analytics. I enjoy writing clean and
+  <!-- Hero Section -->
+  <section id="home"
+    class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="fade-in">
+        <div
+          class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold floating">
+          NS
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          Hi, I'm <span class="gradient-text">Nisha Sati</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 mb-8">
+          <span id="typing-text" class="typing">Data Analytics</span>
+        </p>
+        <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+           I'm a final-year BCA student with a passion for C++ programming and data analytics. I enjoy writing clean and
         efficient code to solve real-world problems. I love exploring data, finding patterns, and turning them into
         useful insights. Outside of tech, I'm also interested in arts. I'm curious, adaptable, and always eager to learn
         and grow in both tech and creativity.
-      </p>
-    </section>
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button onclick="scrollToSection('projects')"
+            class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+            View My Work
+          </button>
+          <button onclick="scrollToSection('contact')"
+            class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300">
+            Get In Touch
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project">
-          <h3>Machine Learning Project </h3>
-          <p>I built a linear regression model in Python to predict student placement packages based on CGPA and course
-            data. The project displays data preprocessing, one-hot encoding, model training, evaluation, and a clear
-            comparison of actual versus predicted results.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Pandas</span>
-            <span class="tech-tag">NumPy</span>
-            <span class="tech-tag">Machine Learning</span>
-            <span class="tech-tag">Model Evaluation</span>
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-in text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">About Me</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-in">
+          <div
+            class="w-80 h-80 mx-auto bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center">
+            <div class="text-8xl">👨‍💻</div>
           </div>
-          <a href="https://github.com/Nishasati05/project-1" target="_blank" class="github-btn">
+        </div>
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold mb-6">Balanced Tech + Creativity Themes</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            🎓 I am currently pursuing a Bachelor's degree in Computer Applications from IITS Mohan Nagar.
+🎨 I serve as the President of the Fine Arts Club at my college, where I actively contribute to fostering creativity and leadership.
+🤖 I have successfully completed a one-month residential program at IIT Mandi focused on IoT, Robotics, Artificial Intelligence, and Machine Learning, gaining hands-on experience in building and programming intelligent systems.
+📊 I also possess intermediate proficiency in Power BI, including dashboard creation, data visualization, and table manipulation.
+          </p>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or
+            sharing knowledge with the data analyst community.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-in text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Skills & Expertise</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold mb-8">Technical Skills</h3>
+          <div class="space-y-6">
+            <div class="skill-item">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">C++</span>
+                <span class="text-blue-600">60%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="skill-bar bg-gradient-to-r from-blue-600 to-blue-500 h-3 rounded-full"
+                  style="--skill-width: 60%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">HTML/CSS</span>
+                <span class="text-purple-600">75%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="skill-bar bg-gradient-to-r from-purple-600 to-purple-500 h-3 rounded-full"
+                  style="--skill-width: 75%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">JavaScript</Script></span>
+                <span class="text-green-600">50%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="skill-bar bg-gradient-to-r from-purple-600 to-purple-500 h-3 rounded-full"
+                  style="--skill-width: 50%"></div>
+              </div>
+              </div>
+              <div class="skill-item">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Python</span>
+                <span class="text-green-600">75%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="skill-bar bg-gradient-to-r from-purple-600 to-purple-500 h-3 rounded-full"
+                  style="--skill-width: 75%"></div>
+              </div>
+              </div>
+            <div class="skill-item">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Node.js / Express</span>
+                <span class="text-green-600">50%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="skill-bar bg-gradient-to-r from-green-600 to-green-500 h-3 rounded-full"
+                  style="--skill-width: 50%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">VS Code</span>
+                <span class="text-yellow-600">75%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="skill-bar bg-gradient-to-r from-yellow-600 to-yellow-500 h-3 rounded-full"
+                  style="--skill-width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold mb-8">Tools & Technologies</h3>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div class="text-3xl mb-2">⚛️</div>
+              <div class="font-medium">React</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div class="text-3xl mb-2">🛠️</div>
+              <div class="font-medium">VS Code</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div class="text-3xl mb-2">🐍</div>
+              <div class="font-medium">Python</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div class="text-3xl mb-2">🗄️</div>
+              <div class="font-medium">MongoDB</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div class="text-3xl mb-2">🐘</div>
+              <div class="font-medium">PostgreSQL</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div class="text-3xl mb-2">🧠</div>
+              <div class="font-medium">C++</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-in text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="project-card fade-in bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+            <div class="text-white text-6xl">🤖</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-3">Machine Learning Project</h3>
+            <p class="text-gray-600 mb-4">I built a linear regression model in Python to predict student placement packages based on CGPA and course
+            data. The project displays data preprocessing, one-hot encoding, model training, evaluation, and a clear
+            comparison of actual versus predicted results.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Python</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Pandas</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">NumPy</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Machine Learning</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Model Evaluation</span>
+            </div>
+            <div class="flex gap-3">
+              </button>
+              <button
+                class="flex-1 border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+                 <a href="https://github.com/Nishasati05/project-1" target="_blank" class="github-btn">
             <span>💻</span> View Code
           </a>
+                GitHub
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div class="project">
-          <h3>Urban Data Visualization (Power BI)</h3>
-          <p>I created an interactive Power BI dashboard to show urban demographic and geographic data. The project
+        <div class="project-card fade-in bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+            <div class="text-white text-6xl">🏙️</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-3">Urban Data Visualization (Power BI)</h3>
+            <p class="text-gray-600 mb-4">I created an interactive Power BI dashboard to show urban demographic and geographic data. The project
             features data modeling, dynamic charts, and informative maps to help users examine urban trends and make
             decisions based on data.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Data Modeling</span>
-            <span class="tech-tag">Power BI</span>
-            <span class="tech-tag">Dashboard Design</span>
-            <span class="tech-tag">Data Visualization</span>
-          </div>
-          <a href="https://github.com/Nishasati05/powerBI-project1" target="_blank" class="github-btn">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Data Modeling</span>
+              <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Power BI</span>
+              <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Data Visualization</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Dashboard Design</span>
+             </div>
+            <div class="flex gap-3">
+              </button>
+              <button
+                class="flex-1 border border-purple-600 text-purple-600 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                 <a href="https://github.com/Nishasati05/powerBI-project1" target="_blank" class="github-btn">
             <span>💻</span> View Code
           </a>
+                GitHub
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div class="project">
-          <h3>Sales Performance Analysis (Tableau)</h3>
-          <p>I developed an engaging Tableau dashboard to analyze and showcase sales performance metrics. The project
+        <div class="project-card fade-in bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+            <div class="text-white text-6xl">📊</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-3">Sales Performance Analysis (Tableau)</h3>
+            <p class="text-gray-600 mb-4">I developed an engaging Tableau dashboard to analyze and showcase sales performance metrics. The project
             includes filters, visual storytelling, and practical insights that assist stakeholders in tracking KPIs and
-            spotting growth opportunities.</p>
-          <div class="project-tech">
-            <span class="tech-tag">Tableau</span>
-            <span class="tech-tag">Data Analysis</span>
-            <span class="tech-tag">Dashboard Design</span>
-            <span class="tech-tag">Interactive Visualizations</span>
-          </div>
-          <a href="https://github.com/Nishasati05/tableau-project-1" target="_blank" class="github-btn">
+            spotting growth opportunities.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Tableau</span>
+              <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Data Analysis</span>
+              <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Interactive Visualization</span>
+            </div>
+            <div class="flex gap-3">
+              </button>
+              <button
+                class="flex-1 border border-green-600 text-green-600 py-2 rounded-lg hover:bg-green-50 transition-colors">
+                 <a href="https://github.com/Nishasati05/tableau-project-1" target="_blank" class="github-btn">
             <span>💻</span> View Code
           </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3>Languages</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">C++</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 50%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Python</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 70%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">JavaScript</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 30%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3>Web Development</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">HTML/CSS</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 40%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">React</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 10%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Node.js</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 30%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3>Tools</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">Git</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 70%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">VS Code</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 100%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Data Analysis</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 100%"></div>
-              </div>
+                GitHub
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="certificates" class="section">
-      <h2>Certificates</h2>
-      <div class="certificates-grid">
-        <div class="certificate">
-          <h3>🧠 Robotics, AI & IoT – IIT Mandi (PRAYAS 3.0)</h3>
-          <p>Successfully completed a 1-month residential program ‘PRAYAS 3.0’ on Robotics, AI & IoT conducted by the
+  
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Certifications & Achievements</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fade-in bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                        🌐  
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">🧠 Robotics, AI & IoT – IIT Mandi (PRAYAS 3.0)</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Successfully completed a 1-month residential program ‘PRAYAS 3.0’ on Robotics, AI & IoT conducted by the
             Centre for Continuing Education, IIT Mandi, from 15th June to 11th July 2025.</p>
-          <a href="#" class="certificate-btn">📄 View Certificate</a>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Issued: July 2025</span>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                            Verify
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
+                      🐳
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">🐳 Mastering Docker – IIT Kanpur (E&ICT Academy)</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Successfully completed the Student Development Program on Mastering Docker organized by E&ICT Academy, IIT Kanpur (a MeitY & IITK initiative) from 22nd to 23rd January 2025.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Issued: January 2025</span>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition-colors">
+                            Verify
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
+                          🎯
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">💡 Hackathon (Datathon)</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Participated in a competitive Datathon event focused on solving real-world data challenges. 
+                   Collaborated in a team to analyze datasets, derive insights, and build data-driven solutions using tools like 
+                   <strong>Power BI</strong> and <strong>Python</strong>.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Issued: February 2025</span>
+                        <button class="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-purple-700 transition-colors">
+                            Verify
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
+                          🏛️
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800"> 🕊️ MUN 2024 – AIPPM Committee</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Certificate of participation and representing Mr. Jotirodiya Scindia in MUN-2024 by AIPPM Committee</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Issued: April 2024</span>
+                        <button class="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-purple-700 transition-colors">
+                            Verify
+                        </button>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="fade-in text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Let's Work Together</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600">Have a project in mind? I'd love to hear about it!</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+          <div class="space-y-4">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <span class="text-blue-600 text-xl">📧</span>
+              </div>
+              <div>
+                <div class="font-medium">Email</div>
+                <div class="text-gray-600">satinisha02@gmail.com</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <span class="text-purple-600 text-xl">💼</span>
+              </div>
+              <div>
+                <div class="font-medium">LinkedIn</div>
+                <div class="text-gray-600">https://www.linkedin.com/in/nisha-sati-3067222b2/</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <span class="text-green-600 text-xl">🐙</span>
+              </div>
+              <div>
+                <div class="font-medium">GitHub</div>
+                <div class="text-gray-600">https://github.com/Nishasati05</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="certificate">
-          <h3>🐳 Mastering Docker – IIT Kanpur (E&ICT Academy)</h3>
-          <p>Successfully completed the Student Development Program on Mastering Docker organized by E&ICT Academy, IIT
-            Kanpur (a MeitY & IITK initiative) from 22nd to 23rd January 2025.</p>
-          <a href="#" class="certificate-btn">📄 View Certificate</a>
+        <div class="fade-in">
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Name</label>
+              <input type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Your Name">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Email</label>
+              <input type="email"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="your@email.com">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Message</label>
+              <textarea rows="4"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+              Send Message
+            </button>
+            <div id="form-message" class="text-center text-sm text-gray-500 hidden">
+              <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Demo Form - Message not actually
+                sent</span>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn or GitHub.</p>
-
-      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/nisha-sati-3067222b2/" target="_blank">linkedin.com/in/Nisha
-          Sati</a></p>
-      <p>💻 GitHub: <a href="https://github.com/Nishasati05" target="_blank">github.com/Nishasati05</a></p>
-      <p>📧 Email: <a href="mailto:satinisha02@gmail.com?subject=Portfolio Inquiry&body=Hello Nisha,"
-          target="_blank">satinisha02@gmail.com</a></p>
-    </section>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Nisha Sati. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="text-2xl font-bold gradient-text mb-4">Nisha Sati</div>
+      <p class="text-gray-400 mb-6">Data Analytics & C++ Programmer & Python Programmer & Tech Enthusiast</p>
+      <div class="flex justify-center space-x-6 mb-8">
+        <button
+          class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+          <span class="text-xl">💼</span>
+        </button>
+        <button
+          class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors">
+          <span class="text-xl">🐙</span>
+        </button>
+        <button
+          class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors">
+          <span class="text-xl">🐦</span>
+        </button>
+      </div>
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-gray-400">&copy; 2025 Nisha Sati. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    // Smooth scrolling for navigation
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    // Update active navigation link
+    function updateActiveNav() {
+      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      sections.forEach((sectionId, index) => {
+        const section = document.getElementById(sectionId);
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          navLinks[index].classList.add('active');
+        }
+      });
+    }
+
+    // Fade in animation on scroll
+    function handleScrollAnimations() {
+      const elements = document.querySelectorAll('.fade-in');
+
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          element.classList.add('visible');
+        }
+      });
+    }
+
+    // Animate skill bars
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-bar');
+      const skillsSection = document.getElementById('skills');
+      const rect = skillsSection.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight - 200) {
+        skillBars.forEach(bar => {
+          bar.classList.add('animate');
+        });
+      }
+    }
+
+    // Typing animation
+    function startTypingAnimation() {
+      const texts = ['Data Analytics ', 'C++ Programmer', 'Creative Thinker', 'Tech Enthusiast','Python Programmer'];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingElement = document.getElementById('typing-text');
+
+      function type() {
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+          typingElement.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typingElement.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+          setTimeout(() => isDeleting = true, 2000);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+        }
+
+        const speed = isDeleting ? 50 : 100;
+        setTimeout(type, speed);
+      }
+
+      type();
+    }
+
+    // Navigation click handlers
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        scrollToSection(targetId);
+      });
+    });
+
+    // Contact form handler
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const messageDiv = document.getElementById('form-message');
+      messageDiv.classList.remove('hidden');
+
+      // Reset form
+      setTimeout(() => {
+        e.target.reset();
+        messageDiv.classList.add('hidden');
+      }, 3000);
+    });
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu').addEventListener('click', () => {
+      // Simple mobile menu toggle (you can expand this)
+      alert('Mobile menu would open here in a full implementation');
+    });
+
+    // Scroll event listeners
+    window.addEventListener('scroll', () => {
+      updateActiveNav();
+      handleScrollAnimations();
+      animateSkillBars();
+    });
+
+    // Initialize animations
+    window.addEventListener('load', () => {
+      handleScrollAnimations();
+      startTypingAnimation();
+    });
+  </script>
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9672599951c59197',t:'MTc1Mzg1MjIzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>
